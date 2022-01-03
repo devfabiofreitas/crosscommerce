@@ -1,0 +1,9 @@
+{
+    "skip_files": [
+      "test/support",
+      "lib/crosschallenge_web/channels/user_socket.ex",
+      "lib/crosschallenge/mailer.ex",
+      "lib/crosschallenge_web/views/page_view.ex",
+       "lib/crosschallenge_web/gettext.ex"             
+    ]
+  }
