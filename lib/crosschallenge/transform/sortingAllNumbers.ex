@@ -2,9 +2,9 @@ defmodule Crosschallenge.Transform.SortingAllNumbers do
   alias Crosschallenge.NumberExtract.GetNumberAllPages
   alias Crosschallenge.Transform.MergeSort
 
-  def sortingNumbers do
+  def sorting_numbers do
     ord =
-      GetNumberAllPages.com()
+      GetNumberAllPages.com_fetch()
       |> MergeSort.sort()
 
     ord

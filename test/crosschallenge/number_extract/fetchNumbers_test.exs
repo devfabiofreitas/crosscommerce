@@ -107,7 +107,7 @@ defmodule Crosschallenge.NumberExtract.FetchNumbersTest do
         0.4528900849961999
       ]
 
-      {_page, response} = FetchNumbers.fetch(10000)
+      {_page, response} = FetchNumbers.fetch(10_000)
 
       assert numbers == response
     end

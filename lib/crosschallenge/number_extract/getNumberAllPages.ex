@@ -1,8 +1,8 @@
 defmodule Crosschallenge.NumberExtract.GetNumberAllPages do
   alias Crosschallenge.NumberExtract.FetchNumbers
 
-  def com(current, list) when current > 1 do
-    controlList =
+  def com_fetch(current, list) when current > 1 do
+    control_list =
       enumerable =
       ((current - 1) * 30 + 1)..(current * 30)
       |> Task.async_stream(fn x -> state(x) end,
@@ -16,14 +16,14 @@ defmodule Crosschallenge.NumberExtract.GetNumberAllPages do
 
     case state(current * 30) do
       :finish ->
-        list ++ controlList
+        list ++ control_list
 
       _ ->
-        com(current + 1, controlList ++ list)
+        com_fetch(current + 1, control_list ++ list)
     end
   end
 
-  def com(current \\ 1, list \\ []) when current == 1 do
+  def com_fetch(current \\ 1, list \\ []) when current == 1 do
     list =
       Task.async_stream(current..30, fn x -> state(x) end,
         ordered: false,
@@ -31,7 +31,7 @@ defmodule Crosschallenge.NumberExtract.GetNumberAllPages do
       )
       |> Enum.reduce([], fn {:ok, {_page, numbers}}, acc -> numbers ++ acc end)
 
-    com(current + 1, list)
+    com_fetch(current + 1, list)
   end
 
   def state(curr) do

@@ -7,15 +7,17 @@ defmodule CrosschallengeWeb.ShowController do
 
   action_fallback FallbackController
 
-  def control_Show(conn, page) do
+  def control_show(conn, page) do
     case GetRecord.get_list() do
       %Record{list: num} ->
         render(conn, "showall.json", allnumbers: num)
-      nil ->  render(conn, "showall.json", allnumbers: [])
+
+      nil ->
+        render(conn, "showall.json", allnumbers: [])
     end
   end
 
   def resq(conn, _) do
-    control_Show(conn, 1)
+    control_show(conn, 1)
   end
 end

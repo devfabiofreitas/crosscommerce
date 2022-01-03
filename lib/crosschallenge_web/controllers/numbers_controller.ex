@@ -7,7 +7,7 @@ defmodule CrosschallengeWeb.NumbersController do
 
   action_fallback FallbackController
 
-  def control_Show(conn, page) do
+  def control_show(conn, page) do
     case GetRecord.get_list() do
       nil ->
         render(conn, "numbers.json", numbers: [])
@@ -30,7 +30,7 @@ defmodule CrosschallengeWeb.NumbersController do
 
       {page, _} ->
         if page > 0 do
-          control_Show(conn, page)
+          control_show(conn, page)
         else
           render(conn, "numbers.json", numbers: nil)
         end
@@ -38,6 +38,6 @@ defmodule CrosschallengeWeb.NumbersController do
   end
 
   def index(conn, _) do
-    control_Show(conn, 1)
+    control_show(conn, 1)
   end
 end
