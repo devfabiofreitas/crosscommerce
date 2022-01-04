@@ -6,7 +6,7 @@
 
 - **Para Buscar e Salvar os Números**: `Crosschallenge.play`
 - Aguarde a busca e salvamento
-- **Para vizualzizar todos os numeros ordenados em uma só página:** http://localhost:4000/api/show
+- **Para vizualizar todos os numeros ordenados em uma só página:** http://localhost:4000/api/show
 - **Para uma vizualizacao semelhante a api dienekes (100 por página):** http://localhost:4000/api/numbers?page=1
 
 # ETAPA EXTRACT
